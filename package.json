@@ -1,0 +1,16 @@
+{
+  "name": "language-tjs",
+  "main": "./lib/language-tjs",
+  "version": "0.0.0",
+  "description": "TJS language support in Atom",
+  "keywords": [
+      "TJS"
+  ],
+  "repository": "https://github.com/sakano/language-tjs",
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {
+  }
+}

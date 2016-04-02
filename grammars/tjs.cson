@@ -1,0 +1,86 @@
+'scopeName': 'source.tjs'
+'name': 'TJS'
+'fileTypes': [
+    "tjs"
+]
+'patterns': [
+    {
+        'begin': '/\\*'
+        'end': '\\*/\\n?'
+        'name': 'comment.block.tjs'
+    }
+    {
+        'begin': '//'
+        'end': '$\\n?'
+        'name': 'comment.line.double-slash.tjs'
+    }
+    {
+        'match': '@?".*?"'
+        'name': 'string.quoted.double.literal.tjs'
+    }
+    {
+        'match': '@?\'.*?\''
+        'name': 'string.quoted.single.literal.tjs'
+    }
+    {
+        'match': '/.*?/'
+        'name': 'constant.regexp.literal.tjs'
+    }
+    {
+        'begin': '<%'
+        'end': '%>'
+        'name': 'constant.octet.literal.tjs'
+    }
+    {
+        'match': '\\b(0[xX][0-9a-fA-F\.]+(p[0-9]*)?)\\b'
+        'name': 'constant.numeric.hexadecimal.literal.tjs'
+    }
+    {
+        'match': '\\b(0[0-7\.]+)\\b'
+        'name': 'constant.numeric.octal.literal.tjs'
+    }
+    {
+        'match': '\\b(0[bB][0-1\.]+)\\b'
+        'name': 'constant.numeric.binary.literal.tjs'
+    }
+    {
+        'match': '\\b([0-9.]+([eE]-?[0-9]*)?)\\b'
+        'name': 'constant.numeric.decimal.literal.tjs'
+    }
+    {
+        'match': '\\b(class|function|property)\\b'
+        'name':'keyword.declare.tjs'
+    }
+    {
+        'match': '\\b(break|case|catch|continue|default|do|else|extends|finally|for|goto|if|return|switch|throw|try|while|with)\\b'
+        'name': 'keyword.control.tjs'
+    }
+    {
+        'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
+        'name': 'keyword.operator.tjs'
+    }
+    {
+        'match': '\\b(setter|getter)\\b'
+        'name': 'keyword.$1.tjs'
+    }
+    {
+        'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
+        'name': 'keyword.unused.tjs'
+    }
+    {
+        'match': '\\b(true|false)\\b'
+        'name': 'constant.language.boolean.tjs'
+    }
+    {
+        'match': '\\b(null|void)\\b'
+        'name': 'constant.language.$1.tjs'
+    }
+    {
+        'match': '\\b(this|super|global|NaN|Infinity)\\b'
+        'name': 'constant.language.tjs'
+    }
+    {
+        'match': '\\b(var|const)\\b'
+        'name': 'storage.type.tjs'
+    }
+]
