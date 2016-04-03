@@ -43,7 +43,7 @@
         'name': 'string.quoted.single.literal.tjs'
     }
     {
-        'match': '/.+?/'
+        'match': '/.+?/[gil]*'
         'name': 'string.regexp.literal.tjs'
     }
     {
