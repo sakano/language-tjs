@@ -4,153 +4,194 @@
     "tjs"
 ]
 'patterns': [
-    # Comments
-    {
-        'begin': '/\\*'
-        'end': '\\*/\\n?'
-        'name': 'comment.block.tjs'
-    }
-    {
-        'begin': '//'
-        'end': '$\\n?'
-        'name': 'comment.line.double-slash.tjs'
-    }
-
-    # Preprocessors
-    {
-        'match': '@set'
-        'name': 'invalid.deprecated.preprocessor.tjs'
-    }
-    {
-        'match': '@if'
-        'name': 'invalid.deprecated.preprocessor.tjs'
-    }
-    {
-        'match': '@endif'
-        'name': 'invalid.deprecated.preprocessor.tjs'
-    }
-
-    # Strings
-    {
-        'match': '@".*?"'
-        'name': 'string.quoted.other.literal.tjs'
-    }
-    {
-        'match': '@\'.*?\''
-        'name': 'string.quoted.other.literal.tjs'
-    }
-    {
-        'match': '".*?"'
-        'name': 'string.quoted.double.literal.tjs'
-    }
-    {
-        'match': '\'.*?\''
-        'name': 'string.quoted.single.literal.tjs'
-    }
-
-    # RegExp
-    {
-        'match': '/.+?/[gil]*'
-        'name': 'string.regexp.literal.tjs'
-    }
-
-    # Octet
-    {
-        'begin': '<%'
-        'end': '%>'
-        'name': 'constant.octet.literal.tjs'
-    }
-
-    # Numbers
-    {
-        'match': '\\b(0[xX][0-9a-fA-F\.]+(p[0-9]*)?)\\b'
-        'name': 'constant.numeric.hexadecimal.literal.tjs'
-    }
-    {
-        'match': '\\b(0[0-7\.]+)\\b'
-        'name': 'constant.numeric.octal.literal.tjs'
-    }
-    {
-        'match': '\\b(0[bB][0-1\.]+)\\b'
-        'name': 'constant.numeric.binary.literal.tjs'
-    }
-    {
-        'match': '\\b([0-9.]+([eE]-?[0-9]*)?)\\b'
-        'name': 'constant.numeric.decimal.literal.tjs'
-    }
-    {
-        'match': '\\b(true|false)\\b'
-        'name': 'constant.language.boolean.tjs'
-    }
-
-    # Keywords
-    {
-        'match': '\\b(null|void|NaN|Infinity)\\b'
-        'name': 'constant.language.$1.tjs'
-    }
-    {
-        'match': '\\b(this|super|global)\\b'
-        'name': 'variable.language.tjs'
-    }
-    {
-        'match': '\\b(break|case|catch|continue|default|do|else|finally|for|goto|if|return|switch|throw|try|while|with)\\b'
-        'name': 'keyword.control.tjs'
-    }
-    {
-        'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
-        'name': 'keyword.operator.tjs'
-    }
-    {
-        'match': '\\b(setter|getter)\\b'
-        'name': 'keyword.other.$1.tjs'
-    }
-    {
-        'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
-        'name': 'keyword.other.unused.tjs'
-    }
-
-    # Class definition
-    {
-        'match': '(class)\\s+(\\w+)(\\s+(extends)\\s(\\w+))?'
-        'captures': {
-            '1': { 'name': 'storage.type.class.tjs' }
-            '2': { 'name': 'entity.name.type.tjs' }
-            '4': { 'name': 'storage.type.class.tjs' }
-            '5': { 'name': 'entity.name.type.tjs' }
-        }
-    }
-
-    # Function definition
-    {
-        'match': '(function)\\s+(\\w+)'
-        'captures': {
-            '1': { 'name': 'storage.type.function.tjs' }
-            '2': { 'name': 'entity.name.function.tjs' }
-        }
-    }
-
-    # Function expression
-    {
-        'match': '\\b(function)\\b'
-        'name': 'storage.type.function.tjs'
-    }
-
-    # Property definition
-    {
-        'match': '(property)\\s+(\\w+)'
-        'captures': {
-            '1': { 'name': 'storage.type.property.tjs' }
-            '2': { 'name': 'entity.name.function.property.tjs' }
-        }
-    }
-
-    # Variable definition
-    {
-        'match': '(var|const)\\s+(\\w+)\\s*(:\\s*(\\w+))?'
-        'captures': {
-            '1': { 'name': 'storage.type.tjs' }
-            '2': { 'name': 'variable.other.tjs' }
-            '4': { 'name': 'entity.name.type.tjs' }
-        }
-    }
+    { 'include': '#code' }
 ]
+'repository':
+    'code': 'patterns': [
+        { 'include': '#comment' }
+        { 'include': '#preprocessor' }
+        { 'include': '#definition' }
+        { 'include': '#value' }
+        { 'include': '#control' }
+        { 'include': '#keyword' }
+    ]
+    'comment': 'patterns': [
+        # Comments
+        {
+            'begin': '/\\*'
+            'end': '\\*/\\n?'
+            'name': 'comment.block.tjs'
+        }
+        {
+            'begin': '//'
+            'end': '$\\n?'
+            'name': 'comment.line.double-slash.tjs'
+        }
+    ]
+    'preprocessor': 'patterns' : [
+        # Preprocessors
+        {
+            'match': '@set'
+            'name': 'invalid.deprecated.preprocessor.tjs'
+        }
+        {
+            'match': '@if'
+            'name': 'invalid.deprecated.preprocessor.tjs'
+        }
+        {
+            'match': '@endif'
+            'name': 'invalid.deprecated.preprocessor.tjs'
+        }
+    ]
+    'definition': 'patterns' : [
+        # Class definition
+        {
+            'match': '\\b(class)\\s+(\\w+)(\\s+(extends)\\s(\\w+))?'
+            'captures': {
+                '1': { 'name': 'storage.type.class.tjs' }
+                '2': { 'name': 'entity.name.type.tjs' }
+                '4': { 'name': 'storage.type.class.tjs' }
+                '5': { 'name': 'entity.name.type.tjs' }
+            }
+        }
+        # Function definition
+        {
+            'begin': '\\b(function)\\s+(\\w+)(\\s*\\()?'
+            'end': '{'
+            'beginCaptures': {
+                '1': { 'name': 'storage.type.function.tjs' }
+                '2': { 'name': 'entity.name.function.tjs' }
+            }
+            'patterns': [
+                { 'include': '#parameter' }
+            ]
+        }
+        # Property definition
+        {
+            'match': '\\b(property)\\s+(\\w+)'
+            'captures': {
+                '1': { 'name': 'storage.type.property.tjs' }
+                '2': { 'name': 'entity.name.function.property.tjs' }
+            }
+        }
+        # Variable definition
+        {
+            'match': '\\b(var|const)\\s+(\\w+)\\s*(:\\s*(\\w+))?'
+            'captures': {
+                '1': { 'name': 'storage.type.tjs' }
+                '2': { 'name': 'variable.other.tjs' }
+                '4': { 'name': 'entity.name.type.tjs' }
+            }
+        }
+    ]
+    'value': 'patterns' : [
+        # Strings
+        {
+            'match': '@".*?"'
+            'name': 'string.quoted.other.literal.tjs'
+        }
+        {
+            'match': '@\'.*?\''
+            'name': 'string.quoted.other.literal.tjs'
+        }
+        {
+            'match': '".*?"'
+            'name': 'string.quoted.double.literal.tjs'
+        }
+        {
+            'match': '\'.*?\''
+            'name': 'string.quoted.single.literal.tjs'
+        }
+        # RegExp
+        {
+            'match': '/.+?/[gil]*'
+            'name': 'string.regexp.literal.tjs'
+        }
+        # Octet
+        {
+            'begin': '<%'
+            'end': '%>'
+            'name': 'constant.octet.literal.tjs'
+        }
+        # Numbers
+        {
+            'match': '\\b(0[xX][0-9a-fA-F\.]+(p[0-9]*)?)\\b'
+            'name': 'constant.numeric.hexadecimal.literal.tjs'
+        }
+        {
+            'match': '\\b(0[0-7\.]+)\\b'
+            'name': 'constant.numeric.octal.literal.tjs'
+        }
+        {
+            'match': '\\b(0[bB][0-1\.]+)\\b'
+            'name': 'constant.numeric.binary.literal.tjs'
+        }
+        {
+            'match': '\\b([0-9.]+([eE]-?[0-9]*)?)\\b'
+            'name': 'constant.numeric.decimal.literal.tjs'
+        }
+        # Keywords
+        {
+            'match': '\\b(true|false)\\b'
+            'name': 'constant.language.boolean.tjs'
+        }
+        {
+            'match': '\\b(null|void|NaN|Infinity)\\b'
+            'name': 'constant.language.$1.tjs'
+        }
+        # Access keywords
+        {
+            'match': '\\b(this|super|global)\\b'
+            'name': 'variable.language.tjs'
+        }
+        # Function expression
+        {
+            'begin': '\\b(function)(\\s*\\()?'
+            'end': '{'
+            'beginCaptures': {
+                '1': { 'name': 'storage.type.function.tjs' }
+            }
+            'patterns': [
+                { 'include': '#parameter' }
+            ]
+        }
+    ]
+    'control': 'patterns' : [
+        # Contorl keywords
+        {
+            'match': '\\b(break|case|catch|continue|default|do|else|finally|for|goto|if|return|switch|throw|try|while|with)\\b'
+            'name': 'keyword.control.tjs'
+        }
+    ]
+    'keyword': 'patterns' : [
+        # Other keywords
+        {
+            'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
+            'name': 'keyword.operator.tjs'
+        }
+        {
+            'match': '\\b(setter|getter)\\b'
+            'name': 'keyword.other.tjs'
+        }
+        {
+            'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
+            'name': 'keyword.other.unused.tjs'
+        }
+    ]
+    'parameter': 'patterns': [
+        # Function parameter
+        {
+            'begin': '(\\w+)(\\s*:\\s*(\\w+))?'
+            'end': '(,|\\))'
+            'beginCaptures': {
+                '1': { 'name': 'variable.parameter.tjs' }
+                '3': { 'name': 'entity.name.type.tjs' }
+            }
+            'patterns': [
+                { 'include': '#comment' }
+                { 'include': '#value' }
+                { 'include': '#keyword' }
+            ]
+        }
+        { 'include': '#comment' }
+    ]
