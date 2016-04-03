@@ -13,7 +13,6 @@
         { 'include': '#definition' }
         { 'include': '#value' }
         { 'include': '#control' }
-        { 'include': '#keyword' }
     ]
     'comment': 'patterns': [
         # Comments
@@ -68,11 +67,30 @@
         }
         # Property definition
         {
-            'match': '\\b(property)\\s+(\\w+)'
-            'captures': {
+            'begin': '\\b(property)\\s+(\\w+)'
+            'end': '}'
+            'beginCaptures': {
                 '1': { 'name': 'storage.type.property.tjs' }
                 '2': { 'name': 'entity.name.function.property.tjs' }
             }
+            'patterns': [
+                { 'include': '#comment' }
+                { 'include': '#preprocessor' }
+                {
+                    'match': '\\b(getter)\\b'
+                    'name': 'keyword.other.tjs'
+                }
+                {
+                    'begin': '\\b(setter)\\s*\\('
+                    'end': '{}'
+                    'beginCaptures': {
+                        '1': { 'name': 'keyword.other.tjs' }
+                    }
+                    'patterns': [
+                        { 'include': '#parameter' }
+                    ]
+                }
+            ]
         }
         # Variable definition
         {
@@ -144,6 +162,15 @@
             'match': '\\b(this|super|global)\\b'
             'name': 'variable.language.tjs'
         }
+        # Other keywords
+        {
+            'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
+            'name': 'keyword.operator.tjs'
+        }
+        {
+            'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
+            'name': 'keyword.other.unused.tjs'
+        }
         # Function expression
         {
             'begin': '\\b(function)(\\s*\\()?'
@@ -163,21 +190,6 @@
             'name': 'keyword.control.tjs'
         }
     ]
-    'keyword': 'patterns' : [
-        # Other keywords
-        {
-            'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
-            'name': 'keyword.operator.tjs'
-        }
-        {
-            'match': '\\b(setter|getter)\\b'
-            'name': 'keyword.other.tjs'
-        }
-        {
-            'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
-            'name': 'keyword.other.unused.tjs'
-        }
-    ]
     'parameter': 'patterns': [
         # Function parameter
         {
@@ -189,9 +201,10 @@
             }
             'patterns': [
                 { 'include': '#comment' }
+                { 'include': '#preprocessor' }
                 { 'include': '#value' }
-                { 'include': '#keyword' }
             ]
         }
         { 'include': '#comment' }
+        { 'include': '#preprocessor' }
     ]
