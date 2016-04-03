@@ -93,11 +93,7 @@
         'name': 'variable.language.tjs'
     }
     {
-        'match': '\\b(class|function|property|var|const)\\b'
-        'name': 'storage.type.tjs'
-    }
-    {
-        'match': '\\b(break|case|catch|continue|default|do|else|extends|finally|for|goto|if|return|switch|throw|try|while|with)\\b'
+        'match': '\\b(break|case|catch|continue|default|do|else|finally|for|goto|if|return|switch|throw|try|while|with)\\b'
         'name': 'keyword.control.tjs'
     }
     {
@@ -111,5 +107,50 @@
     {
         'match': '\\b(debugger|enum|export|import|in|octet|synchronized|public|protected|private|static)\\b'
         'name': 'keyword.other.unused.tjs'
+    }
+
+    # Class definition
+    {
+        'match': '(class)\\s+(\\w+)(\\s+(extends)\\s(\\w+))?'
+        'captures': {
+            '1': { 'name': 'storage.type.class.tjs' }
+            '2': { 'name': 'entity.name.type.tjs' }
+            '4': { 'name': 'storage.type.class.tjs' }
+            '5': { 'name': 'entity.name.type.tjs' }
+        }
+    }
+
+    # Function definition
+    {
+        'match': '(function)\\s+(\\w+)'
+        'captures': {
+            '1': { 'name': 'storage.type.function.tjs' }
+            '2': { 'name': 'entity.name.function.tjs' }
+        }
+    }
+
+    # Function expression
+    {
+        'match': '\\b(function)\\b'
+        'name': 'storage.type.function.tjs'
+    }
+
+    # Property definition
+    {
+        'match': '(property)\\s+(\\w+)'
+        'captures': {
+            '1': { 'name': 'storage.type.property.tjs' }
+            '2': { 'name': 'entity.name.function.property.tjs' }
+        }
+    }
+
+    # Variable definition
+    {
+        'match': '(var|const)\\s+(\\w+)\\s*(:\\s*(\\w+))?'
+        'captures': {
+            '1': { 'name': 'storage.type.tjs' }
+            '2': { 'name': 'variable.other.tjs' }
+            '4': { 'name': 'entity.name.type.tjs' }
+        }
     }
 ]

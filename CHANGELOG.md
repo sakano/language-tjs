@@ -1,3 +1,6 @@
+## 0.3.0
+* Add grammar for class/function/property/varible definitions
+
 ## 0.2.0
 * Add grammar for preprocessor
 * Change patterns name following the naming conversions
