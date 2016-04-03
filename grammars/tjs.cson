@@ -4,6 +4,7 @@
     "tjs"
 ]
 'patterns': [
+    # Comments
     {
         'begin': '/\\*'
         'end': '\\*/\\n?'
@@ -14,6 +15,8 @@
         'end': '$\\n?'
         'name': 'comment.line.double-slash.tjs'
     }
+
+    # Preprocessors
     {
         'match': '@set'
         'name': 'invalid.deprecated.preprocessor.tjs'
@@ -26,6 +29,8 @@
         'match': '@endif'
         'name': 'invalid.deprecated.preprocessor.tjs'
     }
+
+    # Strings
     {
         'match': '@".*?"'
         'name': 'string.quoted.other.literal.tjs'
@@ -42,15 +47,21 @@
         'match': '\'.*?\''
         'name': 'string.quoted.single.literal.tjs'
     }
+
+    # RegExp
     {
         'match': '/.+?/[gil]*'
         'name': 'string.regexp.literal.tjs'
     }
+
+    # Octet
     {
         'begin': '<%'
         'end': '%>'
         'name': 'constant.octet.literal.tjs'
     }
+
+    # Numbers
     {
         'match': '\\b(0[xX][0-9a-fA-F\.]+(p[0-9]*)?)\\b'
         'name': 'constant.numeric.hexadecimal.literal.tjs'
@@ -71,6 +82,8 @@
         'match': '\\b(true|false)\\b'
         'name': 'constant.language.boolean.tjs'
     }
+
+    # Keywords
     {
         'match': '\\b(null|void|NaN|Infinity)\\b'
         'name': 'constant.language.$1.tjs'
