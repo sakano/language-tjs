@@ -15,6 +15,18 @@
         'name': 'comment.line.double-slash.tjs'
     }
     {
+        'match': '@set'
+        'name': 'invalid.deprecated.preprocessor.tjs'
+    }
+    {
+        'match': '@if'
+        'name': 'invalid.deprecated.preprocessor.tjs'
+    }
+    {
+        'match': '@endif'
+        'name': 'invalid.deprecated.preprocessor.tjs'
+    }
+    {
         'match': '@?".*?"'
         'name': 'string.quoted.double.literal.tjs'
     }
