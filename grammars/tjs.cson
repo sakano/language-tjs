@@ -67,30 +67,23 @@
         }
         # Property definition
         {
-            'begin': '\\b(property)\\s+(\\w+)'
-            'end': '}'
-            'beginCaptures': {
+            'match': '\\b(property)\\s+(\\w+)'
+            'captures': {
                 '1': { 'name': 'storage.type.property.tjs' }
                 '2': { 'name': 'entity.name.function.property.tjs' }
             }
-            'patterns': [
-                { 'include': '#comment' }
-                { 'include': '#preprocessor' }
-                {
-                    'match': '\\b(getter)\\b'
-                    'name': 'keyword.other.tjs'
-                }
-                {
-                    'begin': '\\b(setter)\\b'
-                    'end': '{'
-                    'beginCaptures': {
-                        '1': { 'name': 'keyword.other.tjs' }
-                    }
-                    'patterns': [
-                        { 'include': '#parameter' }
-                    ]
-                }
-            ]
+        }
+        {
+            'match': '\\b(getter)\\b'
+            'name': 'keyword.other.tjs'
+        }
+        {
+            'match': '\\b(setter)\\s*\\(\\s*(\\w+)(\\s*:\\s*(\\w+))?'
+            'captures': {
+                '1': { 'name': 'keyword.other.tjs' }
+                '2': { 'name': 'variable.parameter.tjs' }
+                '4': { 'name': 'entity.name.type.tjs' }
+            }
         }
         # Variable definition
         {
