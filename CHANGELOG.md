@@ -1,4 +1,7 @@
 ## 0.3.0
+* Add grammar for multiple var statements
+
+## 0.3.0
 * Add grammar for class/function/property/varible definitions
 
 ## 0.2.0

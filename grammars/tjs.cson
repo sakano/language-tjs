@@ -18,7 +18,7 @@
         # Comments
         {
             'begin': '/\\*'
-            'end': '\\*/\\n?'
+            'end': '\\*/'
             'name': 'comment.block.tjs'
         }
         {
@@ -81,8 +81,8 @@
                     'name': 'keyword.other.tjs'
                 }
                 {
-                    'begin': '\\b(setter)\\s*\\('
-                    'end': '{}'
+                    'begin': '\\b(setter)\\b'
+                    'end': '{'
                     'beginCaptures': {
                         '1': { 'name': 'keyword.other.tjs' }
                     }
@@ -94,12 +94,25 @@
         }
         # Variable definition
         {
-            'match': '\\b(var|const)\\s+(\\w+)\\s*(:\\s*(\\w+))?'
-            'captures': {
+            'begin': '\\b(var|const)\\b'
+            'end': '(;|\\n)'
+            'beginCaptures': {
                 '1': { 'name': 'storage.type.tjs' }
-                '2': { 'name': 'variable.other.tjs' }
-                '4': { 'name': 'entity.name.type.tjs' }
             }
+            'patterns': [
+                { 'include': '#comment' }
+                { 'include': '#preprocessor' }
+                { 'include': '#value' }
+                {
+                    'match': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
+                    'beginCaptures': {
+                        '1': { 'name': 'variable.other.tjs' }
+                        '3': { 'name': 'entity.name.type.tjs' }
+                    }
+                    'patterns': [
+                    ]
+                }
+            ]
         }
     ]
     'value': 'patterns' : [
