@@ -1,5 +1,6 @@
 ## 0.5.0
 * Add grammar for operator if
+* Fix grammar for preprocessor not to detect keyword which is the in middle of line
 
 ## 0.4.0
 * Add grammar for multiple var statements

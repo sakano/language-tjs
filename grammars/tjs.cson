@@ -30,15 +30,15 @@
     'preprocessor': 'patterns' : [
         # Preprocessors
         {
-            'match': '@set'
+            'match': '^[ \t]*@set'
             'name': 'invalid.deprecated.preprocessor.tjs'
         }
         {
-            'match': '@if'
+            'match': '^[ \t]*@if'
             'name': 'invalid.deprecated.preprocessor.tjs'
         }
         {
-            'match': '@endif'
+            'match': '^[ \t]*@endif'
             'name': 'invalid.deprecated.preprocessor.tjs'
         }
     ]
