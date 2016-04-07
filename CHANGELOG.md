@@ -1,6 +1,7 @@
 ## 0.5.0
 * Add grammar for operator if
 * Fix grammar for preprocessor not to detect keyword which is the in middle of line
+* Fix grammar to detect braces-omitted function expression
 * Improve grammar for var statement
 * Improve grammar for function parameter
 

@@ -192,7 +192,7 @@
         }
         # Function expression
         {
-            'begin': '\\b(function)(\\s*\\()?'
+            'begin': '\\b(function)\\s*\\('
             'end': '\\)'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
@@ -200,6 +200,12 @@
             'patterns': [
                 { 'include': '#parameter' }
             ]
+        }
+        {
+            'match': '\\b(function)\\s*(?={)'
+            'captures': {
+                '1': { 'name': 'storage.type.function.tjs' }
+            }
         }
         # Brackets
         {
