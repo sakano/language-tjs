@@ -61,10 +61,13 @@
         # Function definition
         {
             'begin': '\\b(function)\\s+(\\w+)(\\s*\\()?'
-            'end': '\\)'
+            'end': '\\)(\\s*:\\s*(\\w+))?'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
                 '2': { 'name': 'entity.name.function.tjs' }
+            }
+            'endCaptures': {
+                '2': { 'name': 'entity.name.type.tjs' }
             }
             'patterns': [
                 { 'include': '#parameter' }
@@ -79,8 +82,11 @@
             }
         }
         {
-            'match': '\\b(getter)\\b'
-            'name': 'keyword.other.tjs'
+            'match': '\\b(getter)(\\s*:\\s*(\\w+))?'
+            'captures': {
+                '1': { 'name': 'keyword.other.tjs' }
+                '3': { 'name': 'entity.name.type.tjs' }
+            }
         }
         {
             'match': '\\b(setter)\\s*\\(\\s*(\\w+)(\\s*:\\s*(\\w+))?'
@@ -193,18 +199,22 @@
         # Function expression
         {
             'begin': '\\b(function)\\s*\\('
-            'end': '\\)'
+            'end': '\\)(\\s*:\\s*(\\w+))?'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
+            }
+            'endCaptures': {
+                '2': { 'name': 'entity.name.type.tjs' }
             }
             'patterns': [
                 { 'include': '#parameter' }
             ]
         }
         {
-            'match': '\\b(function)\\s*(?={)'
+            'match': '\\b(function)(\\s*:\\s*(\\w+))?\\s*(?={)'
             'captures': {
                 '1': { 'name': 'storage.type.function.tjs' }
+                '3': { 'name': 'entity.name.type.tjs' }
             }
         }
         # Brackets
