@@ -112,6 +112,14 @@
                 { 'include': '#expression' }
             ]
         }
+        # Braces
+        {
+            'begin': '{'
+            'end': '}'
+            'patterns': [
+                { 'include': '#code' }
+            ]
+        }
     ]
     'value': 'patterns' : [
         # Strings
@@ -191,6 +199,14 @@
             }
             'patterns': [
                 { 'include': '#parameter' }
+            ]
+        }
+        # Brackets
+        {
+            'begin': '\\('
+            'end': '\\)'
+            'patterns': [
+                { 'include': '#expression' }
             ]
         }
     ]
