@@ -19,6 +19,10 @@
         { 'include': '#preprocessor' }
         { 'include': '#value' }
     ]
+    'preprocessed': 'patterns': [
+        { 'include': '#comment' }
+        { 'include': '#preprocessor' }
+    ]
     'comment': 'patterns': [
         # Comments
         {
@@ -104,9 +108,10 @@
                 '1': { 'name': 'storage.type.tjs' }
             }
             'patterns': [
+                { 'include': '#preprocessed' }
                 {
                     'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
-                    'end': '(?=[,;])'
+                    'end': '(,|(?=;))'
                     'beginCaptures': {
                         '1': { 'name': 'variable.other.tjs' }
                         '3': { 'name': 'entity.name.type.tjs' }
@@ -115,15 +120,6 @@
                         { 'include': '#expression' }
                     ]
                 }
-                { 'include': '#expression' }
-            ]
-        }
-        # Braces
-        {
-            'begin': '{'
-            'end': '}'
-            'patterns': [
-                { 'include': '#code' }
             ]
         }
     ]
@@ -212,12 +208,58 @@
                 '3': { 'name': 'entity.name.type.tjs' }
             }
         }
+        # Dictionary
+        {
+            'begin': '%\\['
+            'end': '\\]'
+            'name': 'meta.dictionary.tjs'
+            'patterns': [
+                { 'include': '#preprocessed' }
+                {
+                    'begin': '(\\w+)\\s*:'
+                    'end': '(,|=>|(?=\\]))'
+                    'beginCaptures': {
+                        '1': { 'name': 'entity.name.tag.dictionary.tjs' }
+                    }
+                    'patterns': [
+                        { 'include': '#expression' }
+                    ]
+                }
+                {
+                    'begin': '(["\']\\w+["\'])\\s*(,|=>)'
+                    'end': '(,|=>|(?=\\]))'
+                    'beginCaptures': {
+                        '1': { 'name': 'entity.name.tag.dictionary.tjs' }
+                    }
+                    'patterns': [
+                        { 'include': '#expression' }
+                    ]
+                }
+            ]
+        }
+        # Array
+        {
+            'begin': '\\['
+            'end': '\\]'
+            'name': 'meta.array.tjs'
+            'patterns': [
+                { 'include': '#expression' }
+            ]
+        }
         # Brackets
         {
             'begin': '\\('
             'end': '\\)'
             'patterns': [
                 { 'include': '#expression' }
+            ]
+        }
+        # Braces
+        {
+            'begin': '{'
+            'end': '}'
+            'patterns': [
+                { 'include': '#code' }
             ]
         }
     ]
@@ -230,9 +272,10 @@
     ]
     'parameter': 'patterns': [
         # Function parameter
+        { 'include': '#preprocessed' }
         {
             'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
-            'end': '(?=[,\\)])'
+            'end': '(,|(?=\\)))'
             'beginCaptures': {
                 '1': { 'name': 'variable.parameter.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
@@ -241,5 +284,4 @@
                 { 'include': '#expression' }
             ]
         }
-        { 'include': '#expression' }
     ]
