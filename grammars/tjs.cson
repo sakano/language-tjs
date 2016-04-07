@@ -56,7 +56,7 @@
         # Function definition
         {
             'begin': '\\b(function)\\s+(\\w+)(\\s*\\()?'
-            'end': '{'
+            'end': '\\)'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
                 '2': { 'name': 'entity.name.function.tjs' }
@@ -88,23 +88,27 @@
         # Variable definition
         {
             'begin': '\\b(var|const)\\b'
-            'end': '(;|\\n)'
+            'end': ';'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.tjs' }
             }
             'patterns': [
-                { 'include': '#comment' }
-                { 'include': '#preprocessor' }
-                { 'include': '#value' }
                 {
-                    'match': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
+                    'begin': '(\\w+)(\\s*:\\s*(\\w+))?'
+                    'end': '(?=[,;])'
                     'beginCaptures': {
                         '1': { 'name': 'variable.other.tjs' }
                         '3': { 'name': 'entity.name.type.tjs' }
                     }
                     'patterns': [
+                        { 'include': '#comment' }
+                        { 'include': '#preprocessor' }
+                        { 'include': '#value' }
                     ]
                 }
+                { 'include': '#comment' }
+                { 'include': '#preprocessor' }
+                { 'include': '#value' }
             ]
         }
     ]
@@ -180,7 +184,7 @@
         # Function expression
         {
             'begin': '\\b(function)(\\s*\\()?'
-            'end': '{'
+            'end': '\\)'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
             }
@@ -200,7 +204,7 @@
         # Function parameter
         {
             'begin': '(\\w+)(\\s*:\\s*(\\w+))?'
-            'end': '(,|\\))'
+            'end': '(?=[,\\)])'
             'beginCaptures': {
                 '1': { 'name': 'variable.parameter.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
