@@ -11,8 +11,8 @@
         { 'include': '#comment' }
         { 'include': '#preprocessor' }
         { 'include': '#definition' }
-        { 'include': '#value' }
         { 'include': '#control' }
+        { 'include': '#value' }
     ]
     'comment': 'patterns': [
         # Comments
@@ -170,7 +170,7 @@
         }
         # Other keywords
         {
-            'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid)\\b'
+            'match': '\\b(new|delete|typeof|int|real|string|incontextof|instanceof|invalidate|isvalid|if)\\b'
             'name': 'keyword.operator.tjs'
         }
         {

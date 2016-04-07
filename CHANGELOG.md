@@ -1,4 +1,7 @@
-## 0.3.0
+## 0.5.0
+* Add grammar for operator if
+
+## 0.4.0
 * Add grammar for multiple var statements
 * Fix grammar for property definition
 
