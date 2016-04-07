@@ -14,6 +14,11 @@
         { 'include': '#control' }
         { 'include': '#value' }
     ]
+    'expression': 'patterns': [
+        { 'include': '#comment' }
+        { 'include': '#preprocessor' }
+        { 'include': '#value' }
+    ]
     'comment': 'patterns': [
         # Comments
         {
@@ -94,21 +99,17 @@
             }
             'patterns': [
                 {
-                    'begin': '(\\w+)(\\s*:\\s*(\\w+))?'
+                    'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
                     'end': '(?=[,;])'
                     'beginCaptures': {
                         '1': { 'name': 'variable.other.tjs' }
                         '3': { 'name': 'entity.name.type.tjs' }
                     }
                     'patterns': [
-                        { 'include': '#comment' }
-                        { 'include': '#preprocessor' }
-                        { 'include': '#value' }
+                        { 'include': '#expression' }
                     ]
                 }
-                { 'include': '#comment' }
-                { 'include': '#preprocessor' }
-                { 'include': '#value' }
+                { 'include': '#expression' }
             ]
         }
     ]
@@ -203,18 +204,15 @@
     'parameter': 'patterns': [
         # Function parameter
         {
-            'begin': '(\\w+)(\\s*:\\s*(\\w+))?'
+            'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
             'end': '(?=[,\\)])'
             'beginCaptures': {
                 '1': { 'name': 'variable.parameter.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
             }
             'patterns': [
-                { 'include': '#comment' }
-                { 'include': '#preprocessor' }
-                { 'include': '#value' }
+                { 'include': '#expression' }
             ]
         }
-        { 'include': '#comment' }
-        { 'include': '#preprocessor' }
+        { 'include': '#expression' }
     ]
