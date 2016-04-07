@@ -5,6 +5,7 @@
 * Fix grammar to detect braces-omitted function expression
 * Improve grammar for var statement
 * Improve grammar for function parameter
+* Remove grammar for regexp not to misinterpret divide operators
 
 ## 0.4.0
 * Add grammar for multiple var statements

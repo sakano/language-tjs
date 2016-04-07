@@ -145,11 +145,6 @@
             'match': '\'.*?\''
             'name': 'string.quoted.single.literal.tjs'
         }
-        # RegExp
-        {
-            'match': '/.+?/[gil]*'
-            'name': 'string.regexp.literal.tjs'
-        }
         # Octet
         {
             'begin': '<%'
