@@ -111,7 +111,7 @@
                 { 'include': '#preprocessed' }
                 {
                     'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
-                    'end': '(,|(?=;))'
+                    'end': ',|(?=;)'
                     'beginCaptures': {
                         '1': { 'name': 'variable.other.tjs' }
                         '3': { 'name': 'entity.name.type.tjs' }
@@ -217,7 +217,7 @@
                 { 'include': '#preprocessed' }
                 {
                     'begin': '(\\w+)\\s*:'
-                    'end': '(,|=>|(?=\\]))'
+                    'end': ',|=>|(?=\\])'
                     'beginCaptures': {
                         '1': { 'name': 'entity.name.tag.dictionary.tjs' }
                     }
@@ -227,7 +227,7 @@
                 }
                 {
                     'begin': '(["\']\\w+["\'])\\s*(,|=>)'
-                    'end': '(,|=>|(?=\\]))'
+                    'end': ',|=>|(?=\\])'
                     'beginCaptures': {
                         '1': { 'name': 'entity.name.tag.dictionary.tjs' }
                     }
@@ -275,7 +275,7 @@
         { 'include': '#preprocessed' }
         {
             'begin': '\\b(\\w+)(\\s*:\\s*(\\w+))?\\b'
-            'end': '(,|(?=\\)))'
+            'end': ',|(?=\\))'
             'beginCaptures': {
                 '1': { 'name': 'variable.parameter.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
