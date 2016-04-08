@@ -1,3 +1,6 @@
+## 0.5.1
+* Improve grammar for function expression
+
 ## 0.5.0
 * Add grammar for dictionary
 * Add grammar for operator if
