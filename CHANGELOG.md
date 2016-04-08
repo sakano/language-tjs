@@ -1,3 +1,6 @@
+## 0.5.2
+* "function" and "getter" had been highlighted even when it was part of a word
+
 ## 0.5.1
 * Improve grammar for function expression
 

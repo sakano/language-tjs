@@ -86,7 +86,7 @@
             }
         }
         {
-            'match': '\\b(getter)(\\s*:\\s*(\\w+))?'
+            'match': '\\b(getter)(\\s*:\\s*(\\w+))?\\b'
             'captures': {
                 '1': { 'name': 'keyword.other.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
@@ -202,7 +202,7 @@
             ]
         }
         {
-            'match': '\\b(function)(\\s*:\\s*(\\w+))?'
+            'match': '\\b(function)(\\s*:\\s*(\\w+))?\\b'
             'captures': {
                 '1': { 'name': 'storage.type.function.tjs' }
                 '3': { 'name': 'entity.name.type.tjs' }
