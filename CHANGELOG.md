@@ -1,5 +1,7 @@
-## 0.5.2
-* "function" and "getter" had been highlighted even when it was part of a word
+## 0.6.0
+* Fix grammar.  
+  "function" and "getter" had been highlighted even when they were part of a word
+* Add grammar to check illegal dictinoary keys
 
 ## 0.5.1
 * Improve grammar for function expression

@@ -235,6 +235,10 @@
                         { 'include': '#expression' }
                     ]
                 }
+                {
+                    'match': '\\w+\\s*(,|=>)'
+                    'name': 'invalid.illegal.tjs'
+                }
             ]
         }
         # Array
