@@ -64,7 +64,7 @@
         }
         # Function definition
         {
-            'begin': '\\b(function)\\s+(\\w+)(\\s*\\()?'
+            'begin': '\\b(function)\\s+(\\w+)\\s*\\('
             'end': '\\)(\\s*:\\s*(\\w+))?'
             'beginCaptures': {
                 '1': { 'name': 'storage.type.function.tjs' }
@@ -76,6 +76,14 @@
             'patterns': [
                 { 'include': '#parameter' }
             ]
+        }
+        {
+            'match': '\\b(function)\\s+(\\w+)(\\s*:\\s*(\\w+))?'
+            'captures': {
+                '1': { 'name': 'storage.type.function.tjs' }
+                '2': { 'name': 'entity.name.function.tjs' }
+                '4': { 'name': 'entity.name.type.tjs' }
+            }
         }
         # Property definition
         {

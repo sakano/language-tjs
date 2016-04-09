@@ -2,6 +2,7 @@
 * Fix grammar.  
   "function" and "getter" had been highlighted even when they were part of a word
 * Add grammar to check illegal dictinoary keys
+* Add grammar to detect braces-omitted function definition
 
 ## 0.5.1
 * Improve grammar for function expression
