@@ -24,7 +24,6 @@
         { 'include': '#preprocessor' }
     ]
     'comment': 'patterns': [
-        # Comments
         {
             'begin': '/\\*'
             'end': '\\*/'
@@ -37,7 +36,6 @@
         }
     ]
     'preprocessor': 'patterns' : [
-        # Preprocessors
         {
             'match': '^[ \t]*@set'
             'name': 'invalid.deprecated.preprocessor.tjs'
