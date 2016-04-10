@@ -1,7 +1,7 @@
 ## 0.6.0
 * Fix grammar.  
   "function" and "getter" had been highlighted even when they were part of a word
-* Add grammar to check illegal dictinoary keys
+* Add grammar to check illegal dictionary keys
 * Add grammar to detect braces-omitted function definition
 
 ## 0.5.1
@@ -22,7 +22,7 @@
 * Fix grammar for property definition
 
 ## 0.3.0
-* Add grammar for class/function/property/varible definitions
+* Add grammar for class/function/property/variable definitions
 
 ## 0.2.0
 * Add grammar for preprocessor
