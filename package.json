@@ -1,7 +1,7 @@
 {
   "name": "language-tjs",
   "main": "./lib/language-tjs",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "TJS language support in Atom",
   "keywords": [
     "language",
