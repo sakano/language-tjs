@@ -261,7 +261,7 @@
             'begin': '\\('
             'end': '\\)'
             'patterns': [
-                { 'include': '#expression' }
+                { 'include': '#code' }
             ]
         }
         # Braces
