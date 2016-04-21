@@ -1,3 +1,7 @@
+## 0.6.1
+* Fix grammar for numbers
+* Fix grammar for brackets
+
 ## 0.6.0
 * Fix grammar.  
   "function" and "getter" had been highlighted even when they were part of a word
