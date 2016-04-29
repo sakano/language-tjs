@@ -232,7 +232,7 @@
                     ]
                 }
                 {
-                    'begin': '(["\']\\w+["\'])\\s*(,|=>)'
+                    'begin': '(["\'].+?["\'])\\s*(,|=>)'
                     'end': ',|=>|(?=\\])'
                     'beginCaptures': {
                         '1': { 'name': 'entity.name.tag.dictionary.tjs' }
