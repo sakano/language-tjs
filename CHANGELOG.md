@@ -1,3 +1,6 @@
+## 0.6.2
+* Fix grammar for dictionary key
+
 ## 0.6.1
 * Fix grammar for numbers
 * Fix grammar for brackets
